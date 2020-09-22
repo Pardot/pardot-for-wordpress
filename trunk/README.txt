@@ -4,7 +4,7 @@ Donate link: http://pardot.com
 Tags: pardot, salesforce, marketing automation, forms, dynamic content, tracking, web tracking
 Requires at least: 5.2
 Tested up to: 5.4.2
-Stable tag: 1.5.0
+Stable tag: 1.6.1
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -19,7 +19,7 @@ Say hello to marketing automation simplicity! With a single login, your self-hos
 
 1. Upload `pardot-for-wordpress/trunk` to your `/wp-content/plugins/` directory or go to Plugins > Add New in your WordPress Admin area and search for Pardot.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Go to Settings > Pardot Settings and authenticate with either Pardot or Salesforce SSO.
+3. Go to Settings > Pardot Settings and authenticate with Salesforce SSO.
 4. Select your campaign (for tracking code usage).
 
 == Frequently Asked Questions ==
@@ -153,10 +153,21 @@ Filter the regular expression used to find URLs to be converted to https://go.pa
 1. Choose from any form or Dynamic Content
 1. Use forms in a widget
 1. Use dynamic content in a widget
-1. A form widget on a page
+1. A form block in action
 1. A page can have two forms! Here, one is in the body and one in a widget.
+1. Pardot blocks are added the embedded category in the Block Editor.
+1. Form block in the editor
+1. Dynamic content block being edited
 
 == Changelog ==
+
+= 1.6.1 =
+
+* Maintenance -  Removes Pardot authentication, as it is not longer supported.  Salesforce SSO is now the sole authentication method.
+
+= 1.6.0 =
+
+* Feature - Added support for the WordPress Block Editor
 
 = 1.5.0 =
 
@@ -349,9 +360,16 @@ Filter the regular expression used to find URLs to be converted to https://go.pa
 
 == Upgrade Notice ==
 
+= 1.6.1 =
+Support for Pardot authentication has been discontinued.  Please ensure you have authenticated the plugin with Salesforce SSO.
+
+= 1.6.0 =
+* Salesforce SSO is the only supported authentication method now.  Make sure you have authenticated with Salesforce SSO.
+
 = 1.5.0 =
 
 * This release adds Salesforce SSO as an authentication option.  Pardot authentication is being discontinued in February 2021.  Please reauthenticate with Salesforce SSO before then.
+* Block Editor support has also been added.
 
 = 1.4.3 =
 
