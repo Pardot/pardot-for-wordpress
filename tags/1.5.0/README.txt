@@ -4,7 +4,7 @@ Donate link: http://pardot.com
 Tags: pardot, salesforce, marketing automation, forms, dynamic content, tracking, web tracking
 Requires at least: 5.2
 Tested up to: 5.4.2
-Stable tag: 1.6.0
+Stable tag: 1.5.0
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -22,25 +22,21 @@ Say hello to marketing automation simplicity! With a single login, your self-hos
 3. Go to Settings > Pardot Settings and authenticate with either Pardot or Salesforce SSO.
 4. Select your campaign (for tracking code usage).
 
+= Authenticating with Salesforce SSO =
+In order to use Salesforce SSO authentication, you **must** create a connected appliation for the plugin in your Salesforce org.
+
+1. Navigate to App Manager [here](https://login.salesforce.com/lightning/setup/NavigationMenus/home).
+2. One the top right, click the "New Connected App" button.
+3. The connected app name, API name, and contact email can be anything you want. Click the "Enable OAuth Settings" toggle.  The Callback URL is the link to your Pardot WordPress settings page (.../wp-admin/options-general.php?page=pardot).  Also, be sure to add "Access Pardot Services (pardot_api)" to your selected OAuth scopes.
+4. Save your connected application.
+5. A new page will appear with the "Consumer Key" and "Consumer Secret."  Copy those values and paste them into Pardot WordPress settings.
+6. Navigate to Pardot Account Setup using the link [here](https://login.salesforce.com/lightning/setup/PardotAccountSetup/home).  There, you can see the Business Unit IDs associated your organization.  Select which one you would like to use, and copy the ID into the Pardot WordPress settings.
+7. You should be be able to "Save Settings" in Pardot WordPress settings, then "Authenticate with Salesforce".  A popup will appear where you type in your Salesforce credentials.
+8. If all things went according to plan, you should see "Authentication Status" change from "Not Authenticated" to "Authenticated".
+
+
 == Frequently Asked Questions ==
 
-= How do I authenticate with Salesforce SSO? =
-
-In order to use Salesforce SSO authentication, you **must** create a connected application for the plugin in your Salesforce org.  
-
-
-1. Navigate to [App Manager](https://login.salesforce.com/lightning/setup/NavigationMenus/home).  
-1. On the top right, click the "New Connected App" button.
-1. Enter an app name, API name, and contact email of your choice.
-1. Click the "Enable OAuth Settings" toggle.
-1. Enter a Callback URL to allow Salesforce to redirect users back to your Pardot plugin settings page. The URL should look similar to: `https://[YourWordpressDomainHere]/wp-admin/options-general.php?page=pardot`.
-1. Add "Access Pardot Services (pardot_api)" and "Perform requests on your behalf at any time (refresh_token, offline_access)" to your selected OAuth scopes.
-1. Save your connected application. A new page will appear with the Consumer Key and Consumer Secret.
-1. Enter your Consumer Key, Consumer Secret, and Pardot Business Unit ID into the Pardot WordPress settings screen. To find the Pardot Business Unit ID, go to Salesforce Setup and enter "Pardot Account Setup" in the Quick Find box. Your Pardot Business Unit ID begins with "0Uv" and is 18 characters long. If you cannot access the Pardot Account Setup information, ask your Salesforce Administrator to provide you with the Pardot Business Unit ID.
-1. Click "Save Settings".
-1. When the page reloads, click "Authenticate with Salesforce". Enter your Salesforce credentials in the popup that appears. 
-
-You should then see Authentication Status change from "Not Authenticated" to "Authenticated".
 = How can I use the shortcodes without the Visual Editor? =
 
 Two simple shortcodes are available for use.
@@ -153,17 +149,10 @@ Filter the regular expression used to find URLs to be converted to https://go.pa
 1. Choose from any form or Dynamic Content
 1. Use forms in a widget
 1. Use dynamic content in a widget
-1. A form block in action
+1. A form widget on a page
 1. A page can have two forms! Here, one is in the body and one in a widget.
-1. Pardot blocks are added the embedded category in the Block Editor.
-1. Form block in the editor
-1. Dynamic content block being edited
 
 == Changelog ==
-
-= 1.6.0 =
-
-* Feature - Added support for the WordPress Block Editor
 
 = 1.5.0 =
 
@@ -355,10 +344,6 @@ Filter the regular expression used to find URLs to be converted to https://go.pa
 * Initial release.
 
 == Upgrade Notice ==
-
-= 1.6.0 =
-
-* Support for the WordPress Block Editor has been added!
 
 = 1.5.0 =
 
